@@ -16,7 +16,8 @@ class CalculateCommissionTest {
     fun `mastercard amount less than 300 rubles`() {
         // 200 * 0.006 + 20 = 21.2
         // Проверка работы CI. Выставим заранее некорректное значение в тесте, для того чтобы сломать сборку и увидеть это на GitHub
-        assertEquals(100.0, calculateCommission("Mastercard", 0, 200)!!, 0.001)
+        // Устраняем ошибку в Build with Gradle. Корректируем ожидаемое значение в тестах.
+        assertEquals(21.2, calculateCommission("Mastercard", 0, 200)!!, 0.001)
     }
 
     @Test
